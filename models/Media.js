@@ -17,17 +17,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       created_at: {
-        type: "TIMESTAMP",
-        defaultValue: DataTypes.literal("CURRENT_TIMESTAMP"),
+        type: DataTypes.DATE,
         allowNull: false,
       },
     },
     {
       updated_at: {
-        type: "TIMESTAMP",
-        defaultValue: DataTypes.literal(
-          "CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-        ),
+        type: DataTypes.DATE,
         allowNull: false,
       },
     },
