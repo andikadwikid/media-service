@@ -10,9 +10,9 @@ router.get("/", async (req, res) => {
     attributes: ["id", "image"],
   });
 
-  const mappedMedia = media.map((m) => {
-    m.image = `${req.get("host")}/${m.image}`;
-    return m;
+  const mappedMedia = media.map((res) => {
+    res.image = `${req.get("host")}/${res.image}`;
+    return res;
   });
 
   return res.json({
