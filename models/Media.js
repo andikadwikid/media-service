@@ -1,41 +1,19 @@
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  const Media = sequelize.define(
-    "Media",
+  class Media extends Model {
+    static associate(models) {
+      // define association here
+    }
+  }
+  Media.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false,
-      },
+      image: DataTypes.STRING,
     },
     {
-      image: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    },
-    {
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-    },
-    {
-      updated_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-    },
-    {
-      tableName: "media",
-      underscored: true,
+      sequelize,
+      modelName: "Media",
     }
   );
-
-  Media.associate = function (models) {
-    // associations can be defined here
-  };
-
   return Media;
 };
